@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ post.title }}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
+</head>
+<body class="has-background-light">
+  <section class="section">
+    <div class="section has-text-centered">
+      {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+      <ul class="mb-6">
+        {% for category, message in messages %}
+        <li class="is-size-5 has-text-{{ category }}-dark has-text-weight-light">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+
+      <h2 class="title">{{ post.title }}</h2>
+
+      <h3 class="subtitle mt-2">
+        <a href="#">{{ post.author.username }}</a>
+        <time datetime="{{ post.date_posted.date() }}">{{ post.date_posted.date() }}</time>
+      </h3>
+    </div>
+
+    <div class="container mt-4 mb-6 has-text-centered">
+      <p class="is-size-5 has-text-weight-light">{{ post.content }}</p>
+    </div>
+
+    <div class="section has-text-centered">
+      <img src="{{ image_file }}" alt="Profile Picture" class="medium-profile-img"><br>
+
+      {% if current_user.is_authenticated and post.author == current_user %}
+      <a href="{{ url_for('update_post', post_id=post.id) }}" class="button is-warning mt-4 mr-2">Update</a>
+      <a href="{{ url_for('delete_post', post_id=post.id) }}" class="button is-danger mt-4">Delete</a>
+      {% endif %}
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
+</head>
+<body class="has-background-light">
+    <section class="section">
+        <div class="container has-text-centered">
+            <h2 class="title is-size-1 mb-6">Sign Up</h2>
+
+            <form method="POST" action="{{ url_for('register') }}">
+                {{ form.hidden_tag() }}
+                
+                <div class="field mb-5">
+                    {{ form.username.label(class="is-size-4") }}
+                    <div class="control">
+                        {{ form.username(class="is-size-6 p-1") }}
+                    </div>
+                    {% if form.username.errors %}
+                    {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="field mb-5">
+                    {{ form.password.label(class="is-size-4") }}
+                    <div class="control">
+                        {{ form.password(class="is-size-6 p-1") }}
+                    </div>
+                    {% if form.password.errors %}
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="field">
+                    {{ form.confirm_password.label(class="is-size-5") }}
+                    <div classs="control">
+                        {{ form.confirm_password(class="is-size-6 p-1") }}
+                    </div>
+                    {% if form.confirm_password.errors %}
+                    {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    {% endif %}    
+                </div>
+
+                {{ form.submit(class="button is-success is-medium my-6") }}
+            </form>
+    
+            <a href="{{ url_for('login') }}" class="has-text-blue">Already have an account? Login</a>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,97 @@
+body {
+    min-height: 100vh;
+}
+
+.has-text-blue {
+    color: blue;
+}
+
+.my-textarea {
+    width: 600px;
+    height: 300px;
+    resize: none;
+}
+
+.big-margin-left {
+    margin-left: 250px;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid black;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    right: 20px;
+}
+
+.medium-profile-img {
+    width: 135px;
+    height: 135px;
+    max-width: 135px;
+    max-height: 135px;
+    border: 1px solid black;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.small-profile-img {
+    width: 118px;
+    height: 118px;
+    max-width: 118px;
+    max-height: 118px;
+    border: 1px solid black;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media (max-width: 700px) {
+    .my-textarea {
+        width: 525px;
+        height: 275px;
+        resize: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .big-margin-left {
+        margin-left: 150px;
+    }
+
+    .my-textarea {
+        width: 460px;
+        height: 240px;
+        resize: none;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .my-textarea {
+        width: 365px;
+        height: 205px;
+        resize: none;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .my-textarea {
+        width: 260px;
+        height: 205px;
+        resize: none;
+    }
+}
+
+@media (max-width: 300px) {
+
+    .my-textarea {
+        width: 210px;
+        height: 205px;
+        resize: none;
+    }
+}
