@@ -6,10 +6,6 @@ body {
     color: blue;
 }
 
-#blog-title:hover {
-    color: #00BFFF;
-}
-
 .my-textarea {
     width: 600px;
     height: 300px;
