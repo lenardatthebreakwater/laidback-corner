@@ -51,7 +51,7 @@
               <img src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}" alt="Profile Picture" class="small-profile-img">
           </div>
           <div class="media-content is-primary">
-              <h2 class="title"><a href="{{ url_for('post', post_id=post.id) }}" class="has-text-grey" id="blog-title">{{ post.title }}</a></h2>
+              <h2 class="title"><a href="{{ url_for('post', post_id=post.id) }}" class="has-text-grey">{{ post.title }}</a></h2>
               <h3 class="subtitle">
                   <a href="#">{{ post.author.username }}</a>
                   <time datetime="{{ post.date_posted.date() }}">{{ post.date_posted.date() }}</time>
