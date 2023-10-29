@@ -63,7 +63,7 @@ def load_user(user_id):
 class User(db.Model, UserMixin):
 	id = db.Column(db.Integer, primary_key=True)
 	username = db.Column(db.String(20), unique=True, nullable=False)
-	password = db.Column(db.String(60), nullable=False)
+	password = db.Column(db.String(80), nullable=False)
 	image_file = db.Column(db.String(20), nullable=False, default='default.png')
 	posts = db.relationship('Post', backref='author', lazy=True)
 
@@ -95,7 +95,7 @@ def register():
 	if form.validate_on_submit():
 		username = form.username.data
 		hashed_password = bcrypt.generate_password_hash(form.password.data)
-		new_user = User(username=username, password=hashed_password)
+		new_user = User(username=username, password=hashed_password.decode())
 		db.session.add(new_user)
 		db.session.commit()
 		flash(f'Account successfully created for {form.username.data}', 'success')
@@ -110,7 +110,7 @@ def login():
 	form = LoginForm()
 	if form.validate_on_submit():
 		user = User.query.filter_by(username=form.username.data).first()
-		if user and bcrypt.check_password_hash(user.password, form.password.data):
+		if user and bcrypt.check_password_hash(user.password.encode('utf-8'), form.password.data):
 			login_user(user)
 			flash(f'You are now logged in as {user.username}', 'success')
 			return redirect(url_for('home'))
