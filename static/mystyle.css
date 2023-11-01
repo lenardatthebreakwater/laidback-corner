@@ -18,22 +18,34 @@ body {
 
 .profile-img {
     width: 200px;
+    max-width: 200px;
+    height: 200px;
+    max-height: 200px;
     border: 1px solid black;
     border-radius: 50%;
+    object-fit: cover;
     position: relative;
     right: 20px;
 }
 
 .medium-profile-img {
     width: 135px;
+    max-width: 135px;
+    height: 135px;
+    max-height: 135px;
     border: 1px solid black;
     border-radius: 50%;
+    objecf-fit: cover;
 }
 
 .small-profile-img {
     width: 118px;
+    max-width: 118px;
+    height: 118px;
+    max-height: 118px;
     border: 1px solid black;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 @media (max-width: 700px) {
