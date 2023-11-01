@@ -31,7 +31,6 @@ body {
     height: 135px;
     border: 1px solid black;
     border-radius: 50%;
-    object-fit: cover;
 }
 
 .small-profile-img {
