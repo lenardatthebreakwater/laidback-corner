@@ -21,12 +21,12 @@
     <div id="navBarMenu" class="navbar-menu mr-4">
       <div class="navbar-end">
         {% if current_user.is_authenticated %}
-        <a href="{{ url_for('account') }}" class="navbar-item is-size-5">Account</a>
-        <a href="{{ url_for('new_post') }}" class="navbar-item is-size-5">Create Post</a>
-        <a href="{{ url_for('logout') }}" class="navbar-item is-size-5">Logout</a>
+        <a href="{{ url_for('main.account') }}" class="navbar-item is-size-5">Account</a>
+        <a href="{{ url_for('post_blueprint.new_post') }}" class="navbar-item is-size-5">Create Post</a>
+        <a href="{{ url_for('auth.logout') }}" class="navbar-item is-size-5">Logout</a>
         {% else %}
-        <a href="{{ url_for('register') }}" class="navbar-item is-size-5">Register</a>
-        <a href="{{ url_for('login') }}" class="navbar-item is-size-5">Login</a>
+        <a href="{{ url_for('auth.register') }}" class="navbar-item is-size-5">Register</a>
+        <a href="{{ url_for('auth.login') }}" class="navbar-item is-size-5">Login</a>
         {% endif %}
       </div>
     </div>
@@ -51,7 +51,7 @@
               <img src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}" alt="Profile Picture" class="small-profile-img">
           </div>
           <div class="media-content is-primary">
-              <h2 class="title"><a href="{{ url_for('post', post_id=post.id) }}" class="has-text-grey">{{ post.title }}</a></h2>
+              <h2 class="title"><a href="{{ url_for('post_blueprint.post', post_id=post.id) }}" class="has-text-grey">{{ post.title }}</a></h2>
               <h3 class="subtitle">
                   <a href="#">{{ post.author.username }}</a>
                   <time datetime="{{ post.date_posted.date() }}">{{ post.date_posted.date() }}</time>

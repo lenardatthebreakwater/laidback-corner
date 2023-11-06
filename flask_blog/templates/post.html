@@ -37,8 +37,8 @@
       <img src="{{ image_file }}" alt="Profile Picture" class="medium-profile-img"><br>
 
       {% if current_user.is_authenticated and post.author == current_user %}
-      <a href="{{ url_for('update_post', post_id=post.id) }}" class="button is-warning mt-4 mr-2">Update</a>
-      <a href="{{ url_for('delete_post', post_id=post.id) }}" class="button is-danger mt-4">Delete</a>
+      <a href="{{ url_for('post_blueprint.update_post', post_id=post.id) }}" class="button is-warning mt-4 mr-2">Update</a>
+      <a href="{{ url_for('post_blueprint.delete_post', post_id=post.id) }}" class="button is-danger mt-4">Delete</a>
       {% endif %}
     </div>
   </section>

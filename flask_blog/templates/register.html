@@ -3,56 +3,58 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
 </head>
 <body class="has-background-light">
     <section class="section">
         <div class="container has-text-centered">
-            {% with messages = get_flashed_messages(with_categories=True) %}
-                {% if messages %}
-                    <ul>
-                    {% for category, message in messages %}
-                        <li class="is-size-5 has-text-{{ category }}-dark has-text-weight-light">{{ message }}</li>
-                    {% endfor %}
-                    </ul>
-                {% endif %}
-            {% endwith %}
+            <h2 class="title is-size-1 mb-6">Sign Up</h2>
 
-            <h2 class="title is-size-1 mt-4 mb-6">Login</h2>
-
-            <form method="POST" action="{{ url_for('login') }}">
+            <form method="POST" action="{{ url_for('auth.register') }}">
                 {{ form.hidden_tag() }}
-
+                
                 <div class="field mb-5">
                     {{ form.username.label(class="is-size-4") }}
                     <div class="control">
                         {{ form.username(class="is-size-6 p-1") }}
                     </div>
                     {% if form.username.errors %}
-                        {% for error in form.username.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    {% endif %} 
+                    {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    {% endif %}
                 </div>
-
-                <div class="field">
+                
+                <div class="field mb-5">
                     {{ form.password.label(class="is-size-4") }}
                     <div class="control">
                         {{ form.password(class="is-size-6 p-1") }}
                     </div>
                     {% if form.password.errors %}
-                        {% for error in form.password.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
                     {% endif %}
+                </div>
+
+                <div class="field">
+                    {{ form.confirm_password.label(class="is-size-5") }}
+                    <div classs="control">
+                        {{ form.confirm_password(class="is-size-6 p-1") }}
+                    </div>
+                    {% if form.confirm_password.errors %}
+                    {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    {% endif %}    
                 </div>
 
                 {{ form.submit(class="button is-success is-medium my-6") }}
             </form>
-
-            <a href="{{ url_for('register') }}" class="has-text-blue">Don't have an account yet? Register</a>
+    
+            <a href="{{ url_for('auth.login') }}" class="has-text-blue">Already have an account? Login</a>
         </div>
     </section>
 </body>

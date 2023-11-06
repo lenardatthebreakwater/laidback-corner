@@ -10,7 +10,7 @@
 <body class="has-background-light">
     <section class="section">
         <div class="container has-text-centered">
-            <form method="post" action="{{ url_for('new_post') }}">
+            <form method="post" action="{{ url_for('post_blueprint.new_post') }}">
                 {{ form.hidden_tag() }}
 
                 <div class="field mb-6">
