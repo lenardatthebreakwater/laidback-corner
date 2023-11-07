@@ -7,15 +7,15 @@ from .forms import UpdateAccountForm
 from .models import Post
 from . import app, db
 
-main = Blueprint("main", __name__)
+main_blueprint = Blueprint("main_blueprint", __name__)
 
-@main.route("/")
+@main_blueprint.route("/")
 def home():
 	page = request.args.get('page', 1, type=int)
 	posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
 	return render_template('home.html', posts=posts, page=page)
 
-@main.route('/account', methods=['GET', 'POST'])
+@main_blueprint.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
 	form = UpdateAccountForm()
@@ -33,7 +33,7 @@ def account():
 		current_user.username = form.username.data
 		db.session.commit()
 		flash('Your account has been successfully updated', 'success')
-		return redirect(url_for('main.account'))
+		return redirect(url_for('main_blueprint.account'))
 	elif request.method == 'GET':
 		form.username.data = current_user.username
 	image_file = url_for('static', filename='profile_pics/' + current_user.image_file)

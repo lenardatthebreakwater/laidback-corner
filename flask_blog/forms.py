@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from .models import User
+from .models import User, Post
 
 class RegisterForm(FlaskForm):
 	username = StringField('Username', validators=[DataRequired(), Length(min=4, max=20)])
@@ -25,6 +25,11 @@ class PostForm(FlaskForm):
 	title = StringField('Title', validators=[DataRequired()])
 	content = TextAreaField('Content', validators=[DataRequired()])
 	submit = SubmitField('Post')
+
+	def validate_title(self, title):
+		post = Post.query.filter_by(title=title.data).first()
+		if post:
+			raise ValidationError('Title is already taken')
 
 class UpdateAccountForm(FlaskForm):
 	username = StringField('Username', validators=[DataRequired(), Length(min=4, max=20)])

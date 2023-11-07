@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI')
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
-login_manager.login_view = 'auth.login'
+login_manager.login_view = 'auth_blueprint.login'
 
 from .models import User
 @login_manager.user_loader
@@ -18,11 +18,11 @@ def load_user(user_id):
     user = User.query.filter_by(id=user_id).first()
     return user
 
-from .main import main
-app.register_blueprint(main)
+from .main import main_blueprint
+app.register_blueprint(main_blueprint)
 
-from .auth import auth
-app.register_blueprint(auth)
+from .auth import auth_blueprint
+app.register_blueprint(auth_blueprint)
 
 from .post import post_blueprint
 app.register_blueprint(post_blueprint)

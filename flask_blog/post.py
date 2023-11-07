@@ -15,7 +15,7 @@ def new_post():
 		db.session.add(new_post)
 		db.session.commit()
 		flash('Your post has been created', 'success')
-		return redirect(url_for('main.home'))
+		return redirect(url_for('main_blueprint.home'))
 	return render_template('create_post.html', form=form)
 
 @post_blueprint.route('/post/<int:post_id>')
@@ -50,4 +50,4 @@ def delete_post(post_id):
 	db.session.delete(post)
 	db.session.commit()
 	flash('Your post has been successfully deleted', 'danger')
-	return redirect(url_for('main.home'))
+	return redirect(url_for('main_blueprint.home'))

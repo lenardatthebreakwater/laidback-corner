@@ -12,7 +12,7 @@
         <div class="container has-text-centered">
             <h2 class="title is-size-1 mb-6">Sign Up</h2>
 
-            <form method="POST" action="{{ url_for('auth.register') }}">
+            <form method="POST" action="{{ url_for('auth_blueprint.register') }}">
                 {{ form.hidden_tag() }}
                 
                 <div class="field mb-5">
@@ -54,7 +54,7 @@
                 {{ form.submit(class="button is-success is-medium my-6") }}
             </form>
     
-            <a href="{{ url_for('auth.login') }}" class="has-text-blue">Already have an account? Login</a>
+            <a href="{{ url_for('auth_blueprint.login') }}" class="has-text-blue">Already have an account? Login</a>
         </div>
     </section>
 </body>
