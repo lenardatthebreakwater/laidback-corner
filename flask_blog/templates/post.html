@@ -35,6 +35,8 @@
 
     <div class="section has-text-centered">
       <img src="{{ image_file }}" alt="Profile Picture" class="medium-profile-img"><br>
+      <input type="hidden" id="postID" value="{{ post.id }}">
+      <button class="button is-info" id="likeButton">Likes: {{ post.likes }}</button>
 
       {% if current_user.is_authenticated and post.author == current_user %}
       <a href="{{ url_for('post_blueprint.update_post', post_id=post.id) }}" class="button is-warning mt-4 mr-2">Update</a>
@@ -42,5 +44,6 @@
       {% endif %}
     </div>
   </section>
+  <script type="text/javascript" src="{{ url_for('static', filename='likebutton.js') }}"></script>
 </body>
 </html>

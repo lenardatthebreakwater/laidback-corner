@@ -56,6 +56,7 @@
                   <a href="#">{{ post.author.username }}</a>
                   <time datetime="{{ post.date_posted.date() }}">{{ post.date_posted.date() }}</time>
               </h3>
+              <p class="subtitle">Likes: {{ post.likes }}</p>
           </div>
       </article>
       {% endfor %}

@@ -51,3 +51,17 @@ def delete_post(post_id):
 	db.session.commit()
 	flash('Your post has been successfully deleted', 'danger')
 	return redirect(url_for('main_blueprint.home'))
+
+@post_blueprint.route('/post/<int:post_id>/like')
+@login_required
+def like_post(post_id):
+	post = Post.query.get_or_404(post_id)
+	if current_user in post.likers:
+		post.likers.remove(current_user)
+		post.likes -= 1
+		db.session.commit()
+		return f'{post.likes}'
+	post.likers.append(current_user)
+	post.likes += 1
+	db.session.commit()
+	return f'{post.likes}'
