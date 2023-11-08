@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
 </head>
 <body class="has-background-light">
-  <section class="section">
+  <section class="section" id="mainSection">
     <div class="section has-text-centered">
       {% with messages = get_flashed_messages(with_categories=True) %}
       {% if messages %}

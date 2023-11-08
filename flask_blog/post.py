@@ -52,10 +52,11 @@ def delete_post(post_id):
 	flash('Your post has been successfully deleted', 'danger')
 	return redirect(url_for('main_blueprint.home'))
 
-@post_blueprint.route('/post/<int:post_id>/like')
-@login_required
+@post_blueprint.route('/post/<int:post_id>/like', methods=['POST'])
 def like_post(post_id):
 	post = Post.query.get_or_404(post_id)
+	if not current_user.is_authenticated:
+		return "You need to login in order to like a post", 401
 	if current_user in post.likers:
 		post.likers.remove(current_user)
 		post.likes -= 1
