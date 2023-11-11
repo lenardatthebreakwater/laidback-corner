@@ -1,17 +1,22 @@
-const likeButton = document.querySelector("#likeButton")
-const postID = document.querySelector("#postID")
+const likeButtons = document.querySelectorAll("#likeButton")
+const postIDs = document.querySelectorAll("#postID")
+let i = 0
+let postIDValue = postIDs[i].value
 
-likeButton.addEventListener("click", (e) => {
-	e.preventDefault()
-	const xhr = new XMLHttpRequest()
-	xhr.open("POST", `/post/${ postID.value }/like`, true)
-	xhr.onload = () => {
-		if (xhr.status == 401) {
-			alert(xhr.responseText)
-		} else if (xhr.status == 200) {
-			likeButton.innerText = `Likes: ${xhr.responseText}`
+likeButtons.forEach((likeButton) => {
+	likeButton.addEventListener("click", (e) => {
+		e.preventDefault()
+		const xhr = new XMLHttpRequest()
+		xhr.open("POST", `/post/${ postIDValue }/like`, true)
+		xhr.onload = () => {
+			if (xhr.status == 401) {
+				alert(xhr.responseText)
+			} else if (xhr.status == 200) {
+				likeButton.innerHTML = `<span class="icon"><i class='bx bx-like is-size-4'></i>${xhr.responseText}</span>`
+			}
 		}
-	}
-	xhr.send()
+		xhr.send()
+		i+=1
+	})
+	i+=1
 })
-

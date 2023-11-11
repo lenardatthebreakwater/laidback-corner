@@ -6,11 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ post.title }}</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
 </head>
 <body class="has-background-light">
-  <section class="section" id="mainSection">
-    <div class="section has-text-centered">
+  <nav class="navbar">
+    <div class="navbar-menu is-active pt-6 pl-6 has-background-light">
+      <div class="navbar-start">
+        <a href="{{ url_for('main_blueprint.home') }}" class="navbar-item">
+          <span class="icon"><i class='bx bx-home-alt-2 is-size-2'></i></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="mainSection">
+    <div class="container my-6 has-text-centered">
       {% with messages = get_flashed_messages(with_categories=True) %}
       {% if messages %}
       <ul class="mb-6">
@@ -21,29 +32,19 @@
       {% endif %}
       {% endwith %}
 
-      <h2 class="title">{{ post.title }}</h2>
-
-      <h3 class="subtitle mt-2">
-        <a href="#">{{ post.author.username }}</a>
-        <time datetime="{{ post.date_posted.date() }}">{{ post.date_posted.date() }}</time>
-      </h3>
+      <h2 class="title is-size-2 has-text-grey-darker">{{ post.title }}</h2>
     </div>
 
-    <div class="container mt-4 mb-6 has-text-centered">
-      <p class="is-size-5 has-text-weight-light">{{ post.content }}</p>
+    <div class="container has-text-centered">
+      <p>{{ post.content }}</p>
     </div>
 
-    <div class="section has-text-centered">
-      <img src="{{ image_file }}" alt="Profile Picture" class="medium-profile-img"><br>
-      <input type="hidden" id="postID" value="{{ post.id }}">
-      <button class="button is-info" id="likeButton">Likes: {{ post.likes }}</button>
-
+    <div class="container my-6 has-text-centered">
       {% if current_user.is_authenticated and post.author == current_user %}
-      <a href="{{ url_for('post_blueprint.update_post', post_id=post.id) }}" class="button is-warning mt-4 mr-2">Update</a>
-      <a href="{{ url_for('post_blueprint.delete_post', post_id=post.id) }}" class="button is-danger mt-4">Delete</a>
+      <a href="{{ url_for('post_blueprint.update_post', post_id=post.id) }}" class="button is-warning mr-4 is-medium">Update</a>
+      <a href="{{ url_for('post_blueprint.delete_post', post_id=post.id) }}" class="button is-danger is-medium">Delete</a>
       {% endif %}
     </div>
   </section>
-  <script type="text/javascript" src="{{ url_for('static', filename='likebutton.js') }}"></script>
 </body>
 </html>

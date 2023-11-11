@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
 </head>
 <body class="has-background-light">
@@ -31,7 +32,7 @@
       </div>
     </div>
   </nav>
-  
+
   <section class="section">
     <div class="container">
       {% with messages = get_flashed_messages(with_categories=True) %}
@@ -51,12 +52,22 @@
               <img src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}" alt="Profile Picture" class="small-profile-img">
           </div>
           <div class="media-content is-primary">
-              <h2 class="title"><a href="{{ url_for('post_blueprint.post', post_id=post.id) }}" class="has-text-grey">{{ post.title }}</a></h2>
-              <h3 class="subtitle">
-                  <a href="#">{{ post.author.username }}</a>
+              <h2 class="title">
+                <a href="{{ url_for('post_blueprint.post', post_id=post.id) }}" class="has-text-grey-darker">{{ post.title }}</a>
+              </h2>
+              <h3 class="subtitle is-size-6">
+                  <a>{{ post.author.username }}</a>
                   <time datetime="{{ post.date_posted.date() }}">{{ post.date_posted.date() }}</time>
               </h3>
-              <p class="subtitle">Likes: {{ post.likes }}</p>
+              <div class="level-left mt-6">
+                <input type="hidden" id="postID" value="{{ post.id }}">
+                <a id="likeButton" class="level-item has-text-grey-dark">
+                  <span class="icon">
+                    <i class='bx bx-like is-size-4'></i>
+                    {{ post.likes }}
+                  </span>
+                </a>
+              </div>
           </div>
       </article>
       {% endfor %}
@@ -82,5 +93,6 @@
     </div>
   </section>
   <script type="text/javascript" src="{{ url_for('static', filename='navbar.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='likebutton.js') }}"></script>
 </body>
 </html>

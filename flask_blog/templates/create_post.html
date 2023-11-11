@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create Post</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
 </head>
 <body class="has-background-light">
+    <nav class="navbar">
+        <div class="navbar-menu is-active pt-6 pl-6 has-background-light">
+            <div class="navbar-start">
+                <a href="{{ url_for('main_blueprint.home') }}" class="navbar-item">
+                    <span class="icon"><i class='bx bx-home-alt-2 is-size-2'></i></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
     <section class="section">
         <div class="container has-text-centered">
             <form method="post" action="{{ url_for('post_blueprint.new_post') }}">
