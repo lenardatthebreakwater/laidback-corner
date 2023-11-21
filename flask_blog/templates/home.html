@@ -19,7 +19,7 @@
       </a>
     </div>
 
-    <div id="navBarMenu" class="navbar-menu mr-4">
+    <div id="navBarMenu" class="navbar-menu pr-4">
       <div class="navbar-end">
         {% if current_user.is_authenticated %}
         <a href="{{ url_for('main_blueprint.account') }}" class="navbar-item is-size-5">Account</a>
@@ -60,13 +60,14 @@
                   <time datetime="{{ post.date_posted.date() }}">{{ post.date_posted.date() }}</time>
               </h3>
               <div class="level-left mt-6">
-                <input type="hidden" id="postID" value="{{ post.id }}">
-                <a id="likeButton" class="level-item has-text-grey-dark">
-                  <span class="icon">
-                    <i class='bx bx-like is-size-4'></i>
-                    {{ post.likes }}
-                  </span>
-                </a>
+                <span class="icon mr-5">
+                  <i class='bx bx-like is-size-4'></i>
+                  {{ post.likes }}
+                </span>
+                <span class="icon">
+                  <i class='bx bx-dislike is-size-4'></i>
+                  {{ post.likes }}
+                </span>
               </div>
           </div>
       </article>

@@ -14,14 +14,14 @@
     <div class="navbar-menu is-active pt-6 pl-6 has-background-light">
       <div class="navbar-start">
         <a href="{{ url_for('main_blueprint.home') }}" class="navbar-item">
-          <span class="icon"><i class='bx bx-home-alt-2 is-size-2'></i></span>
+          <span class="icon"><i class='bx bx-home-alt-2 is-size-3'></i></span>
         </a>
       </div>
     </div>
   </nav>
 
-  <section id="mainSection">
-    <div class="container my-6 has-text-centered">
+  <section>
+    <div class="container has-text-centered mb-5">
       {% with messages = get_flashed_messages(with_categories=True) %}
       {% if messages %}
       <ul class="mb-6">
@@ -35,14 +35,14 @@
       <h2 class="title is-size-2 has-text-grey-darker">{{ post.title }}</h2>
     </div>
 
-    <div class="container has-text-centered">
-      <p>{{ post.content }}</p>
+    <div class="container">
+      <p class="is-size-5 has-text-grey-darker" style="line-height: 1.7;">{{ post.content }}</p>
     </div>
 
-    <div class="container my-6 has-text-centered">
+    <div class="container has-text-centered my-6">
       {% if current_user.is_authenticated and post.author == current_user %}
-      <a href="{{ url_for('post_blueprint.update_post', post_id=post.id) }}" class="button is-warning mr-4 is-medium">Update</a>
-      <a href="{{ url_for('post_blueprint.delete_post', post_id=post.id) }}" class="button is-danger is-medium">Delete</a>
+      <a href="{{ url_for('post_blueprint.update_post', post_id=post.id) }}" class="button is-warning mr-4">Update</a>
+      <a href="{{ url_for('post_blueprint.delete_post', post_id=post.id) }}" class="button is-danger">Delete</a>
       {% endif %}
     </div>
   </section>

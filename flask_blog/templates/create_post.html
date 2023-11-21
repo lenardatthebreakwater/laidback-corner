@@ -13,18 +13,18 @@
         <div class="navbar-menu is-active pt-6 pl-6 has-background-light">
             <div class="navbar-start">
                 <a href="{{ url_for('main_blueprint.home') }}" class="navbar-item">
-                    <span class="icon"><i class='bx bx-home-alt-2 is-size-2'></i></span>
+                    <span class="icon"><i class='bx bx-home-alt-2 is-size-3'></i></span>
                 </a>
             </div>
         </div>
     </nav>
 
-    <section class="section">
+    <section>
         <div class="container has-text-centered">
             <form method="post" action="{{ url_for('post_blueprint.new_post') }}">
                 {{ form.hidden_tag() }}
 
-                <div class="field mb-6">
+                <div class="field mb-4">
                     {{ form.title.label(class="is-size-4") }}
                     <div class="control">
                         {{ form.title(class="is-size-6 p-2") }}
@@ -48,7 +48,7 @@
                     {% endif %}
                 </div>
 
-                {{ form.submit(class="button is-link is-medium my-6") }}
+                {{ form.submit(class="button is-link mt-4 mb-6") }}
         </form>
         </div>
     </section>

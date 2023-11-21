@@ -13,7 +13,7 @@
             <form method="post" action="{{ url_for('post_blueprint.update_post', post_id=post.id) }}">
                 {{ form.hidden_tag() }}
 
-                <div class="field mb-6">
+                <div class="field mb-4">
                     {{ form.title.label(class="is-size-4") }}
                     <div class="control">
                         {{ form.title(class="is-size-6 p-2") }}
@@ -37,7 +37,7 @@
                     {% endif %}
                 </div>
 
-                {{ form.submit(class="button is-warning is-medium my-6") }}
+                {{ form.submit(class="button is-warning mt-4 mb-6") }}
         </form>
         </div>
     </section>
