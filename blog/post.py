@@ -57,12 +57,12 @@ def like_post(post_id):
 	post = Post.query.get_or_404(post_id)
 	if not current_user.is_authenticated:
 		return "You need to login in order to like a post", 401
-	if current_user in post.likers:
-		post.likers.remove(current_user)
+	if post in current_user.liked_posts:
+		current_user.liked_posts.remove(post)
 		post.likes -= 1
 		db.session.commit()
 		return f'{post.likes}'
-	post.likers.append(current_user)
+	current_user.liked_posts.append(post)
 	post.likes += 1
 	db.session.commit()
 	return f'{post.likes}'

@@ -1,5 +1,5 @@
-const likeButtons = document.querySelectorAll("#likeButton")
-const postIDs = document.querySelectorAll("#postID")
+const likeButtons = document.querySelectorAll(".likeButton")
+const postIDs = document.querySelectorAll(".postID")
 let i = 0
 let postIDValue = postIDs[i].value
 
@@ -16,7 +16,6 @@ likeButtons.forEach((likeButton) => {
 			}
 		}
 		xhr.send()
-		i+=1
 	})
 	i+=1
 })
