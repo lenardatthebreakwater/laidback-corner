@@ -1,6 +1,6 @@
 # Flask Blog
 
-![hero](preview.png)
+![hero](./preview.png)
 
 ## Introduction
 
