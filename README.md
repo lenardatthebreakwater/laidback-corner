@@ -15,7 +15,7 @@ A blog application written in Python
 * Clone this repo 
 
 ```bash
-https://github.com/lenardatthebreakwater/flask-blog.git
+git clone https://github.com/lenardatthebreakwater/flask-blog.git
 ```
 
 * Change Directory
