@@ -8,7 +8,7 @@
 A blog application written in Python 
 
 ## Requirements
-* Python installed
+* Python (any version close to 3.11.4)
 
 ## Installation
 
