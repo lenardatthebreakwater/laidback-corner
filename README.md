@@ -2,9 +2,6 @@
 
 ![preview](https://github.com/lenardatthebreakwater/flask-blog/assets/142602437/f68cea86-ccf9-4e9a-98d2-af2e8399cd6e)
 
-
-## Introduction
-
 A blog application written in Python using the Flask webframework 
 
 ## Requirements
