@@ -5,7 +5,7 @@
 
 ## Introduction
 
-A blog application written in Python 
+A blog application written in Python using the Flask webframework 
 
 ## Requirements
 * Python (any version close to 3.11.4)
