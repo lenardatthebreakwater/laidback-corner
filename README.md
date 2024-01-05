@@ -35,13 +35,13 @@ python databasetup.py
 
 ## Usage
 
-To run this application, execute:
+* To run this application, execute:
 
 ```bash
 python run.py
 ```
 
-You should be able to access this application at `http://127.0.0.1:5000`
+* You should be able to access this application at `http://127.0.0.1:5000`
 
 ## Notes
 
