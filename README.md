@@ -35,6 +35,8 @@ python databasetup.py
 
 ## Usage
 
+I'm using Bulma via a cdn for most of the design so you need internet in order to load it
+
 To run this application, execute:
 
 ```bash
