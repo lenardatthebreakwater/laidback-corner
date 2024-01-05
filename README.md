@@ -35,16 +35,12 @@ python databasetup.py
 
 ## Usage
 
-* To run this application, execute:
+To run this application, execute:
 
 ```bash
 python run.py
 ```
 
-* You should be able to access this application at `http://127.0.0.1:5000`
+You should be able to access this application at `http://127.0.0.1:5000`
 
-## Notes
-
-* I'm using Bulma via a cdn for most of the design so you need internet in order to load it
-
-* I still can't make the like button feature work right so it's very buggy
+This application uses Bulma via cdn so you need internet in order to load it
