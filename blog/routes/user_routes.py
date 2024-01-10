@@ -4,6 +4,7 @@ from PIL import Image
 from flask import Blueprint, render_template, url_for, flash, redirect, request, abort
 from flask_login import login_required, current_user
 from blog.forms import UpdateAccountForm
+from blog.models import User
 from blog import app, db
 
 user_blueprint = Blueprint("user_blueprint", __name__)
