@@ -18,14 +18,14 @@ def load_user(user_id):
     user = User.query.filter_by(id=user_id).first()
     return user
 
-from blog.home_routes import home_blueprint
+from blog import home_blueprint
 app.register_blueprint(home_blueprint)
 
-from blog.auth_routes import auth_blueprint
+from blog import auth_blueprint
 app.register_blueprint(auth_blueprint)
 
-from blog.post_routes import post_blueprint
+from blog import post_blueprint
 app.register_blueprint(post_blueprint)
 
-from blog.user_routes import user_blueprint
+from blog import user_blueprint
 app.register_blueprint(user_blueprint)
