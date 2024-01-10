@@ -1,7 +1,7 @@
 import os
 import secrets
 from PIL import Image
-from flask import Blueprint, render_template, url_for, flash, redirect, request
+from flask import Blueprint, render_template, url_for, flash, redirect, request, abort
 from flask_login import login_required, current_user
 from blog.forms import UpdateAccountForm
 from blog import app, db
@@ -11,6 +11,8 @@ user_blueprint = Blueprint("user_blueprint", __name__)
 @user_blueprint.route('/user/<int:user_id>/account', methods=['GET', 'POST'])
 @login_required
 def account(user_id):
+	if user_id != current_user.id:
+		abort(403)
 	form = UpdateAccountForm()
 	if form.validate_on_submit():
 		if form.picture.data:
