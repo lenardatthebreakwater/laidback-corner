@@ -11,6 +11,7 @@ user_blueprint = Blueprint("user_blueprint", __name__)
 @user_blueprint.route('/user/<int:user_id>/account', methods=['GET', 'POST'])
 @login_required
 def account(user_id):
+	user = User.query.get_or_404(user_id)
 	if user_id != current_user.id:
 		abort(403)
 	form = UpdateAccountForm()
