@@ -32,10 +32,14 @@ def update_post(post_id):
 		abort(403)
 	form = UpdatePostForm()
 	if form.validate_on_submit():
-		post.title = form.title.data
-		post.content = form.content.data 
-		db.session.commit()
-		flash('Your post has been successfully updated', 'success')
+		try:
+			post.title = form.title.data
+			post.content = form.content.data 
+			db.session.commit()
+			flash('Your post has been successfully updated', 'success')
+		except:
+			db.session.rollback()
+			flash('You already have a post with the same name')
 		return redirect(url_for('post_blueprint.post', post_id=post.id))
 	form.title.data = post.title
 	form.content.data = post.content

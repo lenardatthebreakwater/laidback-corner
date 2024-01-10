@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -18,14 +17,14 @@ def load_user(user_id):
     user = User.query.filter_by(id=user_id).first()
     return user
 
-from blog import home_blueprint
+from blog.routes import home_blueprint
 app.register_blueprint(home_blueprint)
 
-from blog import auth_blueprint
+from blog.routes import auth_blueprint
 app.register_blueprint(auth_blueprint)
 
-from blog import post_blueprint
+from blog.routes import post_blueprint
 app.register_blueprint(post_blueprint)
 
-from blog import user_blueprint
+from blog.routes import user_blueprint
 app.register_blueprint(user_blueprint)

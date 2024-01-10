@@ -1,3 +1,4 @@
-blog/__pycache__
-instance
 env
+instance
+blog/__pycache__
+blog/routes/__pycache__

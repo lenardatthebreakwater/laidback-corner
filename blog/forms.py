@@ -38,7 +38,7 @@ class UpdatePostForm(FlaskForm):
 
 	def validate_title(self, title): 
 		post = Post.query.filter_by(title=title.data).first()
-		if post and post.author != current_user.username:
+		if post.author != current_user:
 			raise ValidationError('Title is already taken')
 
 class UpdateAccountForm(FlaskForm):
