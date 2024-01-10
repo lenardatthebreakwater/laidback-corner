@@ -22,7 +22,7 @@
     <div id="navBarMenu" class="navbar-menu pr-4">
       <div class="navbar-end">
         {% if current_user.is_authenticated %}
-        <a href="{{ url_for('main_blueprint.account') }}" class="navbar-item is-size-5">Account</a>
+        <a href="{{ url_for('user_blueprint.account') }}" class="navbar-item is-size-5">Account</a>
         <a href="{{ url_for('post_blueprint.new_post') }}" class="navbar-item is-size-5">Create Post</a>
         <a href="{{ url_for('auth_blueprint.logout') }}" class="navbar-item is-size-5">Logout</a>
         {% else %}
@@ -59,14 +59,6 @@
                   <a>{{ post.author.username }}</a>
                   <time datetime="{{ post.date_posted.date() }}">{{ post.date_posted.date() }}</time>
               </h3>
-              <div class="level-left mt-6">
-                <span class="icon mr-5 likeButton">
-                  <i class='bx bx-like is-size-4'></i>
-                  {{ post.likes }}
-                </span>
-              </div>
-          </div>
-          <input type="hidden" value={{ post.id }} class="postID">
       </article>
       {% endfor %}
       {% endif %}
@@ -91,6 +83,5 @@
     </div>
   </section>
   <script type="text/javascript" src="{{ url_for('static', filename='navbar.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='likebutton.js') }}"></script>
 </body>
 </html>

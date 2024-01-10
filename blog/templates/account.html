@@ -12,7 +12,7 @@
   <nav class="navbar">
     <div class="navbar-menu is-active pt-6 pl-6 has-background-light">
       <div class="navbar-start">
-        <a href="{{ url_for('main_blueprint.home') }}" class="navbar-item">
+        <a href="{{ url_for('home_blueprint.home') }}" class="navbar-item">
           <span class="icon"><i class='bx bx-home-alt-2 is-size-3'></i></span>
         </a>
       </div>
@@ -33,7 +33,7 @@
 
       <img src="{{ image_file }}" alt="Profile Picture" class="profile-img mb-5">
 
-      <form action="{{ url_for('main_blueprint.account') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ url_for('user_blueprint.account', user_id=current_user.id) }}" method="post" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
 
         <div class="field mb-5">

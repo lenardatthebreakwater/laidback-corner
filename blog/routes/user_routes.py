@@ -1,21 +1,14 @@
 import os
 import secrets
 from PIL import Image
-from flask import Blueprint, request, render_template, url_for, flash, redirect
+from flask import Blueprint, render_template, url_for, flash, redirect
 from flask_login import login_required, current_user
-from .forms import UpdateAccountForm
-from .models import Post
-from . import app, db
+from blog.forms import UpdateAccountForm
+from blog import app, db
 
-main_blueprint = Blueprint("main_blueprint", __name__)
+user_blueprint = Blueprint("user_blueprint", __name__)
 
-@main_blueprint.route("/")
-def home():
-	page = request.args.get('page', 1, type=int)
-	posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
-	return render_template('home.html', posts=posts, page=page)
-
-@main_blueprint.route('/account', methods=['GET', 'POST'])
+@user_blueprint.route('user/<int:user_id>/account', methods=['GET', 'POST'])
 @login_required
 def account():
 	form = UpdateAccountForm()
@@ -33,7 +26,7 @@ def account():
 		current_user.username = form.username.data
 		db.session.commit()
 		flash('Your account has been successfully updated', 'success')
-		return redirect(url_for('main_blueprint.account'))
+		return redirect(url_for('user_blueprint.account'))
 	elif request.method == 'GET':
 		form.username.data = current_user.username
 	image_file = url_for('static', filename='profile_pics/' + current_user.image_file)

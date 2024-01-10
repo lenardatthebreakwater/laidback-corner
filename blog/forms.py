@@ -31,6 +31,16 @@ class PostForm(FlaskForm):
 		if post: 
 			raise ValidationError('Title is already taken')
 
+class UpdatePostForm(FlaskForm):
+	title = StringField('Title', validators=[DataRequired()])
+	content = TextAreaField('Content', validators=[DataRequired()])
+	submit = SubmitField('Post')
+
+	def validate_title(self, title): 
+		post = Post.query.filter_by(title=title.data).first()
+		if post and post.author != current_user.username:
+			raise ValidationError('Title is already taken')
+
 class UpdateAccountForm(FlaskForm):
 	username = StringField('Username', validators=[DataRequired(), Length(min=4, max=20)])
 	picture = FileField('Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
