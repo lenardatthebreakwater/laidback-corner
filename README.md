@@ -43,4 +43,4 @@ python run.py
 
 You should be able to access this application at `http://127.0.0.1:5000`
 
-This application uses Bulma via cdn so you need internet in order to load it
+Internet connection is needed in order to load Bulma.
