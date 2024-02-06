@@ -1,8 +1,8 @@
-# Flask Blog
+# Laid-back Corner
 
 ![preview](https://github.com/lenardatthebreakwater/flask-blog/assets/142602437/f68cea86-ccf9-4e9a-98d2-af2e8399cd6e)
 
-A blog application written in Python using the Flask webframework. It uses Bulma CSS for the frontend design.
+A blog application written in Python using the Flask webframework for the backend and Bulma CSS for the frontend.
 
 ## Requirements
 * Python (any version close to 3.11.4)
