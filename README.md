@@ -12,13 +12,13 @@ A blog application written in Python using the Flask webframework. It utilizes B
 * Clone this repo 
 
 ```bash
-git clone https://github.com/lenardatthebreakwater/flask-blog.git
+git clone https://github.com/lenardatthebreakwater/laidback-corner.git
 ```
 
 * Change Directory
 
 ```bash
-cd flask-blog
+cd laidback-corner
 ```
 
 * Run Pip Install
