@@ -2,7 +2,7 @@
 
 ![preview](https://github.com/lenardatthebreakwater/flask-blog/assets/142602437/f68cea86-ccf9-4e9a-98d2-af2e8399cd6e)
 
-A blog application written in Python using the Flask webframework. It utilizes Bulma CSS on the frontend.
+A blog application written in Python using the Flask webframework. It utilizes icons from Boxicons and Bulma CSS on the frontend.
 
 ## Requirements
 * Python (any version close to 3.11.4)
@@ -43,4 +43,4 @@ python run.py
 
 You should be able to access this application at `http://127.0.0.1:5000`
 
-Internet connection is needed in order to load Bulma.
+Internet connection is needed in order to load Bulma and Boxicons.
