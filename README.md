@@ -1,8 +1,8 @@
 # Laid-back Corner
 
-![laidback_corner_homepage_preview](https://github.com/lenardatthebreakwater/laidback-corner/assets/142602437/d94398b8-8753-434a-a768-525372d7aea6)/
-![laidback_corner_registerpage_preview](https://github.com/lenardatthebreakwater/laidback-corner/assets/142602437/30bd9237-5296-4164-89b2-ce956ac1fef1)/
-![laidback_corner_createpost_preview](https://github.com/lenardatthebreakwater/laidback-corner/assets/142602437/d280df7a-1296-4164-94a8-c5ff3373bd1a)/
+![laidback_corner_homepage_preview](https://github.com/lenardatthebreakwater/laidback-corner/assets/142602437/d94398b8-8753-434a-a768-525372d7aea6)\
+![laidback_corner_registerpage_preview](https://github.com/lenardatthebreakwater/laidback-corner/assets/142602437/30bd9237-5296-4164-89b2-ce956ac1fef1)\
+![laidback_corner_createpost_preview](https://github.com/lenardatthebreakwater/laidback-corner/assets/142602437/d280df7a-1296-4164-94a8-c5ff3373bd1a)\
 
 A blog application written in Python using the Flask webframework. It utilizes icons from Boxicons and Bulma CSS on the frontend.
 
