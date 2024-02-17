@@ -2,7 +2,7 @@
 
 A blog application written in Python using the Flask webframework. It utilizes icons from Boxicons and Bulma CSS on the frontend.
 
-![laidback_corner_homepage_preview](https://github.com/lenardatthebreakwater/laidback-corner/assets/142602437/d94398b8-8753-434a-a768-525372d7aea6)\
+![laidback_corner_homepage_preview](https://github.com/lenardatthebreakwater/laidback-corner/assets/142602437/d94398b8-8753-434a-a768-525372d7aea6)
 
 ## Requirements
 * Python (any version close to 3.11.4)
