@@ -18,6 +18,9 @@ def account(user_id):
 	form = UpdateAccountForm()
 	if form.validate_on_submit():
 		if form.picture.data:
+			if user.image_file != 'default.png':
+				if os.path.exists(os.path.join(app.root_path, "static/profile_pics", user.image_file)):
+					os.remove(os.path.join(app.root_path, "static/profile_pics", user.image_file))
 			random_hex = secrets.token_hex(8)
 			_, file_extension = os.path.splitext(form.picture.data.filename)
 			new_complete_filename = random_hex + file_extension
