@@ -1,6 +1,6 @@
 # Laid-back Corner
 
-A blog application written in Python using the Flask webframework. It utilizes icons from Boxicons and Bulma CSS on the frontend.
+A blog web application written in Python using the Flask webframework. It utilizes Bulma CSS on the frontend.
 
 ![laidback_corner_homepage_preview](https://github.com/lenardatthebreakwater/laidback-corner/assets/142602437/d94398b8-8753-434a-a768-525372d7aea6)
 
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 * Set Up Database
 
 ```bash
-python databasetup.py
+python setup.py
 ```
 
 ## Usage

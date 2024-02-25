@@ -19,7 +19,7 @@ def register():
 		db.session.commit()
 		flash(f'Account successfully created for {form.username.data}', 'success')
 		return redirect(url_for('auth_blueprint.login'))
-	return render_template('register.html', form=form)
+	return render_template('register.html', title="Register", form=form)
 
 @auth_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
@@ -35,7 +35,7 @@ def login():
         else:
             flash('Login unsuccessful, please check username or password', 'danger')
             return redirect(url_for('auth_blueprint.login'))
-    return render_template('login.html', form=form)
+    return render_template('login.html', title="Login", form=form)
 
 @auth_blueprint.route('/logout')
 @login_required

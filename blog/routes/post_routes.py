@@ -16,13 +16,13 @@ def new_post():
 		db.session.commit()
 		flash('Your post has been created', 'success')
 		return redirect(url_for('home_blueprint.home'))
-	return render_template('create_post.html', form=form)
+	return render_template('create_post.html', title="New Post", form=form)
 
 @post_blueprint.route('/post/<int:post_id>')
 def post(post_id):
 	post = Post.query.get_or_404(post_id)
 	image_file = url_for('static', filename='profile_pics/' + post.author.image_file)
-	return render_template('post.html', image_file=image_file, post=post)
+	return render_template('post.html', title="Post", image_file=image_file, post=post)
   
 @post_blueprint.route('/post/<int:post_id>/update', methods=['GET', 'POST'])
 @login_required
@@ -43,7 +43,7 @@ def update_post(post_id):
 		return redirect(url_for('post_blueprint.post', post_id=post.id))
 	form.title.data = post.title
 	form.content.data = post.content
-	return render_template('update_post.html', form=form, post=post)
+	return render_template('update_post.html', title="Update Post", form=form, post=post)
 
 @post_blueprint.route('/post/<int:post_id>/delete')
 @login_required
